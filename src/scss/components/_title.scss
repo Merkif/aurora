@@ -1,0 +1,19 @@
+@use "../mixins/breakpoint" as mq;
+@use "./functions/clamp-calc" as *;
+
+.title {
+	font-family: var(--second-family);
+	line-height: 0.82;
+	letter-spacing: -0.02em;
+	color: inherit;
+	margin-block: 0;
+
+	&--1 {
+		font-weight: 500;
+		font-size: 175px;
+	}
+
+	&--center {
+		text-align: center;
+	}
+}

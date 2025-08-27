@@ -1,0 +1,11 @@
+@use "./mixins/font-face" as *;
+
+// onest
+@include font-face("Onest", "onest-thin-100", 100, normal);
+@include font-face("Onest", "onest-light-300", 300, normal);
+@include font-face("Onest", "onest-regular", 400, normal);
+@include font-face("Onest", "onest-semibold-600", 600, normal);
+
+// Commissioner
+@include font-face("Commissioner", "commissioner-light-300", 300, normal);
+@include font-face("Commissioner", "commissioner-medium-500", 500, normal);

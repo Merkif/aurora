@@ -1,0 +1,145 @@
+/* stylelint-disable */
+
+// ==============================
+// 📐 Breakpoints
+// ==============================
+$breakpoints: (
+	desktop-xl: 1920px,
+	desktop: 1400px,
+	laptop: 1200px,
+	tablet-lg: 992px,
+	tablet: 768px,
+	mobile-lg: 567px,
+	mobile: 320px,
+);
+
+// ==============================
+// 🔧 Universal shorthand mixin
+// ==============================
+/// @example @include bp(tablet, max) { ... }
+/// @example @include bp(desktop, min) { ... }
+@mixin bp($point, $type: max) {
+	$size: map-get($breakpoints, $point);
+
+	@if $size == null {
+		@error "Нет брейкпоинта #{$point} в $breakpoints";
+	}
+
+	@if $type == max {
+		@media (max-width: $size) {
+			@content;
+		}
+	} @else if $type == min {
+		// +1px чтобы не пересекалось с max
+		@media (min-width: ($size + 1px)) {
+			@content;
+		}
+	} @else {
+		@error "Неверный тип: #{$type}. Используй min или max";
+	}
+}
+
+// ==============================
+// 🔧 Between mixin
+// ==============================
+/// @example @include bp-between(tablet, desktop) { ... }
+@mixin bp-between($from, $to) {
+	$from-size: map-get($breakpoints, $from);
+	$to-size: map-get($breakpoints, $to);
+
+	@if $from-size == null or $to-size == null {
+		@error "Неверные брейкпоинты: #{$from}, #{$to}";
+	}
+
+	@media (min-width: ($from-size + 1px)) and (max-width: $to-size) {
+		@content;
+	}
+}
+
+// ==============================
+// 🎯 Alias mixins
+// ==============================
+
+// Mobile
+@mixin mobile {
+	@include bp(mobile, max) {
+		@content;
+	}
+}
+@mixin mobile-up {
+	@include bp(mobile, min) {
+		@content;
+	}
+}
+
+// Mobile Large
+@mixin mobile-lg {
+	@include bp(mobile-lg, max) {
+		@content;
+	}
+}
+@mixin mobile-lg-up {
+	@include bp(mobile-lg, min) {
+		@content;
+	}
+}
+
+// Tablet
+@mixin tablet {
+	@include bp(tablet, max) {
+		@content;
+	}
+}
+@mixin tablet-up {
+	@include bp(tablet, min) {
+		@content;
+	}
+}
+
+// Tablet Large
+@mixin tablet-lg {
+	@include bp(tablet-lg, max) {
+		@content;
+	}
+}
+@mixin tablet-lg-up {
+	@include bp(tablet-lg, min) {
+		@content;
+	}
+}
+
+// Laptop
+@mixin laptop {
+	@include bp(laptop, max) {
+		@content;
+	}
+}
+@mixin laptop-up {
+	@include bp(laptop, min) {
+		@content;
+	}
+}
+
+// Desktop
+@mixin desktop {
+	@include bp(desktop, max) {
+		@content;
+	}
+}
+@mixin desktop-up {
+	@include bp(desktop, min) {
+		@content;
+	}
+}
+
+// Desktop XL
+@mixin desktop-xl {
+	@include bp(desktop-xl, max) {
+		@content;
+	}
+}
+@mixin desktop-xl-up {
+	@include bp(desktop-xl, min) {
+		@content;
+	}
+}

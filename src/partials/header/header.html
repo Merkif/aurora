@@ -1,0 +1,15 @@
+<header class="header">
+	<span class="header__plus" aria-hidden="true">
+		<svg aria-hidden="true" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<rect width="23" height="23" fill="black"/>
+			<line x1="4.25879" y1="11.4268" x2="18.7403" y2="11.4268" stroke="white"/>
+			<line x1="11.5732" y1="4.25977" x2="11.5732" y2="18.7412" stroke="white"/>
+		</svg>
+	</span>
+	<a class="header__logo logo" @if (!context.home) {href="/"}>
+		<svg class="logo__img" width="138" height="39">
+		  <use xlink:href="img/sprite.svg#logo"></use>
+		</svg>
+	</a>
+	@include('../menu/menu.html')
+</header>

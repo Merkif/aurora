@@ -1,0 +1,70 @@
+@use "../mixins/disable-mob-hover" as *;
+@use "../mixins/focus" as *;
+
+.button {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	outline: none;
+	border: none;
+	width: fit-content;
+	font-weight: 600;
+	font-size: 25px;
+	line-height: 1.11;
+	color: var(--color-purple);
+	background-color: transparent;
+	transition: padding 0.3s ease;
+	padding-inline-end: 30px;
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		width: 23px;
+		background-image: url("data:image/svg+xml,%3Csvg width='23' height='23' viewBox='0 0 23 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='23' height='23' fill='%236E4FB5'/%3E%3Cline x1='18.3145' y1='11.5' x2='3.83297' y2='11.5' stroke='white'/%3E%3Cpath d='M10.5 3.5L18.5 11.5L10.5 19.5001' stroke='white'/%3E%3C/svg%3E%0A");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-color: var(--color-purple);
+		transform-origin: right;
+		transition: transform 0.3s ease;
+		aspect-ratio: 1/1;
+		inset-block-end: 2px;
+	}
+
+	&::before {
+		transform: scaleX(0);
+		transform-origin: left;
+		inset-inline-start: 0;
+	}
+
+	&::after {
+		transform-origin: right;
+		inset-inline-end: 0;
+	}
+
+	@include hover {
+		padding-inline: 30px 0;
+
+		&::before {
+			transform: scaleX(1);
+		}
+
+		&::after {
+			transform: scaleX(0);
+		}
+	}
+
+	@include focus {
+		outline: 1px dashed var(--color-purple);
+		outline-offset: 8px;
+		padding-inline: 30px 0;
+
+		&::before {
+			transform: scaleX(1);
+		}
+
+		&::after {
+			transform: scaleX(0);
+		}
+	}
+}

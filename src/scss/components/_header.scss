@@ -1,0 +1,24 @@
+@use "../functions/clamp-calc" as *;
+@use "../mixins/breakpoint" as *;
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-height: clamp-calc(1200px, 1400px, 76px, 89px);
+	font-size: clamp-calc(1200px, 1920px, 18px, 22px);
+	background-color: #fff;
+	border-block-end: 2px solid #000;
+	gap: clamp-calc(1200px, 1400px, 40px, 47px);
+	padding-block: clamp-calc(1400px, 1920px, 15px, 20px);
+	padding-inline: 25px;
+
+	&__plus {
+		display: flex;
+	}
+
+	&__logo {
+		max-width: clamp-calc(1200px, 1400px, 117px, 137px);
+		margin-inline-end: auto;
+	}
+}

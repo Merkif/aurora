@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru" class="page page--smooth">
+
+@include('partials/head/head.html', {
+	"title": "Аврора Девелопмент",
+	"description": "Создаем качественные складские активы с 2017 года",
+})
+
+<body class="page__body">
+	<div id="smooth-wrapper">
+		<div id="smooth-content">
+				@include('partials/header/header.html', {
+					"home": true
+				})
+			<main class="main">
+				@include('partials/section-hero/section-hero.html')
+				<div style="height: 4000px; background-color: var(--color-purple);"></div>
+			</main>
+		</div>
+	</div>
+</body>
+
+</html>

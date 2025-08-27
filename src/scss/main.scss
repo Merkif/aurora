@@ -1,0 +1,41 @@
+// базовые подключения
+@use "vars";
+@use "settings";
+@use "fonts" as *;
+
+// подключения компонентов страницы
+@use "./components/menu";
+@use "./components/logo";
+@use "./components/header";
+@use "./components/title";
+@use "./components/text";
+@use "./components/button";
+
+// @use "./components/desc";
+// @use "./components/main";
+// @use "./components/features";
+// @use "./components/link";
+// @use "./components/list";
+// @use "./components/pricing-cads";
+// @use "./components/card";
+// @use "./components/tabs";
+// @use "./components/slider";
+// @use "./components/grid-default";
+// @use "./components/guarantee-list";
+// @use "./components/stage-card";
+// @use "./components/project-card";
+// @use "./components/team-member";
+// @use "./components/map";
+// @use "./components/contact-list";
+// @use "./components/social";
+// @use "./components/field";
+// @use "./components/radio";
+// @use "./components/form";
+// @use "./components/modal";
+// @use "./components/footer";
+
+// подключения секций страницы
+@use "./components/section-hero";
+
+// utils
+// @use "./components/utils";

@@ -1,0 +1,32 @@
+@use "./functions/clamp-calc" as *;
+
+:root {
+	// base
+	/* clean-css ignore:start */
+	--TRUE: initial;
+	--FALSE: ;
+
+	/* clean-css ignore:end */
+	--font-family: "Onest", sans-serif;
+	--second-family: "Commissioner", sans-serif;
+	--third-family: "Inter", sans-serif;
+	--content-width: 1800px;
+	--container-offset: #{clamp-calc(375px, 1440px, 15px, 58px)};
+	--container-width: calc(
+		var(--content-width) + (var(--container-offset) * 2)
+	);
+	--container: max(
+		var(--container-offset),
+		calc((100% - var(--content-width)) / 2)
+	);
+	--container-half: max(
+		var(--container-offset),
+		calc(100% - var(--content-width) / 2)
+	);
+	--left-panel: 62px;
+
+	/* colors */
+	--color-gray: #ededed;
+	--color-purple: #6e4fb5;
+	--color-black: #000;
+}

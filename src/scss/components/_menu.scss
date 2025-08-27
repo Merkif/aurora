@@ -1,0 +1,53 @@
+@use "../mixins/disable-mob-hover" as *;
+@use "../mixins/focus" as *;
+@use "../functions/clamp-calc" as *;
+
+.menu {
+	--gap: #{clamp-calc(1200px, 1400px, 34px, 40px)};
+
+	&__list {
+		display: flex;
+		align-items: center;
+		gap: var(--gap);
+	}
+
+	&__button {
+		display: none;
+	}
+
+	&__link {
+		--thickness-width: 6px;
+
+		position: relative;
+		text-decoration: underline;
+		text-decoration-color: transparent;
+		isolation: isolate;
+		transition: opacity 0.3s ease, text-decoration 0.3s ease;
+		text-decoration-thickness: var(--thickness-width);
+		text-underline-offset: calc(100% + var(--thickness-width));
+
+		&::before {
+			content: "";
+			position: absolute;
+			inset: -100% -15px;
+			z-index: -1;
+		}
+
+		@include hover {
+			text-decoration-color: currentcolor;
+		}
+
+		@include focus {
+			outline: none;
+			text-decoration-color: var(--color-purple);
+
+			&::before {
+				outline: 2px dashed var(--color-purple);
+			}
+		}
+
+		&--current {
+			text-decoration-color: currentcolor;
+		}
+	}
+}
