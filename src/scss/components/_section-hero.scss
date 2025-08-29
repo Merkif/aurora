@@ -5,12 +5,10 @@
 	--tile-2-height: 57px;
 	--tile-3-height: 91px;
 	--tile-4-height: 50px;
-	--tile-5-height: 82px;
+	--tile-5-height: 83px;
 
 	display: grid;
 	grid-template-columns: 18.5% 15% 36.65% 30.7%;
-	overflow-y: hidden;
-	overflow-y: clip;
 
 	&__figure {
 		position: relative;
@@ -151,6 +149,7 @@
 		&--5 {
 			align-self: flex-end;
 			height: var(--tile-5-height);
+			margin-block-end: -1px;
 		}
 
 		&--purple {

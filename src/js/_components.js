@@ -1,4 +1,6 @@
+import "./components/header-height.js";
 import "./components/scroll-smoother.js";
 import "./components/section-hero-anim.js";
-import "./components/header-height.js";
+import "./components/section-about-anim.js";
 import "./components/menu.js";
+import "./components/slider-stats.js";
