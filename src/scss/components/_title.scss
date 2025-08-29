@@ -1,5 +1,7 @@
 @use "../mixins/breakpoint" as mq;
 @use "./functions/clamp-calc" as *;
+@use "../mixins/disable-mob-hover" as *;
+@use "../mixins/focus" as *;
 
 .title {
 	font-family: var(--second-family);
@@ -11,6 +13,47 @@
 	&--1 {
 		font-weight: 500;
 		font-size: 175px;
+	}
+
+	&--2 {
+		font-weight: 300;
+		font-size: 115px;
+	}
+
+	&--wrapped {
+		display: inline-flex;
+		flex-direction: column;
+
+		span {
+			transition: text-indent 0.3s ease 0.2s;
+		}
+
+		span[style*="--text-indent"] {
+			white-space: nowrap;
+			text-indent: var(--text-indent, 42%);
+		}
+
+		&[href] {
+			@include hover {
+				span:not([style*="--text-indent"]) {
+					text-indent: 10%;
+				}
+
+				span[style*="--text-indent"] {
+					text-indent: 35%;
+				}
+			}
+
+			@include focus {
+				span:not([style*="--text-indent"]) {
+					text-indent: 10%;
+				}
+
+				span[style*="--text-indent"] {
+					text-indent: 35%;
+				}
+			}
+		}
 	}
 
 	&--center {

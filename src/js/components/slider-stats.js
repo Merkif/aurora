@@ -84,7 +84,7 @@ class StatsList {
 const statsList = document?.querySelector(".stats-list");
 if (statsList) {
 	new StatsList(statsList, {
-		autoplay: true,
+		autoplay: false,
 		interval: 3000,
 		pauseOnHover: true,
 		disableOnInteraction: false,

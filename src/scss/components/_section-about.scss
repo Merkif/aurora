@@ -1,9 +1,25 @@
 .section-about {
 	--padding: 63px;
 
-	min-height: 911px;
+	position: relative;
+	min-height: 1106px;
 	color: #fff;
 	background-color: var(--color-purple);
+	isolation: isolate;
 	padding-block: 80px 49px;
 	padding-inline: calc(var(--left-panel) + var(--padding)) var(--padding);
+
+	&__map {
+		position: absolute;
+		z-index: -1;
+		width: 100%;
+		inset-block-start: -23%;
+		inset-inline-end: -45%;
+
+		svg {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
 }
