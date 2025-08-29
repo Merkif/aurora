@@ -70,7 +70,7 @@
 		font-size: var(--value-font-size);
 		line-height: 0.93;
 		transform: translateY(var(--value-translate-y, revert));
-		transition: font-size 0.3s ease;
+		transition: all 0.3s ease, font-weight 0s;
 		user-select: none;
 
 		&::before,
