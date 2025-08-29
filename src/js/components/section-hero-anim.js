@@ -21,7 +21,7 @@ const tl = gsap.timeline({
 	scrollTrigger: {
 		trigger: ".section-hero",
 		start: "clamp(center 90%)",
-		end: "+=1000",
+		end: "+=850",
 		scrub: true,
 	},
 });
