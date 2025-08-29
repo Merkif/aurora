@@ -23,6 +23,7 @@
 	&--wrapped {
 		display: inline-flex;
 		flex-direction: column;
+		width: fit-content;
 
 		span {
 			transition: text-indent 0.3s ease 0.2s;

@@ -2,6 +2,10 @@
 	--padding: 63px;
 
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: space-between;
 	min-height: 1106px;
 	color: #fff;
 	background-color: var(--color-purple);
