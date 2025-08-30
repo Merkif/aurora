@@ -20,6 +20,9 @@ class StatsList {
 
 		this.updateActiveItem();
 		this.userInteracted = false;
+		this.autoplayEnabled = autoplay;
+		this.interval = interval;
+		this.disableOnInteraction = disableOnInteraction;
 
 		this.items.forEach((item, index) => {
 			const button = item.querySelector(".stats-list__button");
@@ -28,7 +31,7 @@ class StatsList {
 					this.next(index);
 					this.userInteracted = true;
 
-					if (disableOnInteraction) {
+					if (this.disableOnInteraction) {
 						this.stopAutoplay();
 					}
 				});
@@ -36,7 +39,23 @@ class StatsList {
 		});
 
 		if (autoplay) {
-			this.startAutoplay(interval);
+			this.observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							if (!this.userInteracted || !disableOnInteraction) {
+								this.startAutoplay(interval);
+							}
+						} else {
+							this.stopAutoplay();
+						}
+					});
+				},
+				{
+					threshold: 0.5,
+				}
+			);
+			this.observer.observe(this.container);
 
 			if (pauseOnHover) {
 				this.container.addEventListener("mouseenter", () => {
@@ -84,7 +103,7 @@ class StatsList {
 const statsList = document?.querySelector(".stats-list");
 if (statsList) {
 	new StatsList(statsList, {
-		autoplay: false,
+		autoplay: true,
 		interval: 3000,
 		pauseOnHover: true,
 		disableOnInteraction: false,
