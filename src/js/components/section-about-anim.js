@@ -6,9 +6,19 @@ gsap.registerPlugin(ScrollTrigger);
 const tl = gsap.timeline({
 	ease: "none",
 	scrollTrigger: {
-		trigger: ".section-hero",
+		trigger: ".section-about",
 		start: "clamp(center 90%)",
-		end: "+=1000",
+		end: "+=400",
 		scrub: true,
 	},
 });
+
+tl.fromTo(
+	".section-about__map",
+	{
+		opacity: 0,
+	},
+	{
+		opacity: 1,
+	}
+);

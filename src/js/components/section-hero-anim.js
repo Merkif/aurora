@@ -9,12 +9,11 @@ const sectionHeroTitle = sectionHero.querySelector(".section-hero__title");
 const sectionHeroSubtitle = sectionHero.querySelector(
 	".section-hero__subtitle"
 );
-const tileFirst = sectionHero.querySelector(".section-hero .tile--1");
-const tileSecond = sectionHero.querySelector(".section-hero .tile--2");
-const tileThird = sectionHero.querySelector(".section-hero .tile--3");
-const tileFourth = sectionHero.querySelector(".section-hero .tile--4");
-const tileFifth = sectionHero.querySelector(".section-hero .tile--5");
-const tileGroup = sectionHero.querySelector(".section-hero .tile-group");
+const tileFirst = sectionHero.querySelector(".tile--1");
+const tileSecond = sectionHero.querySelector(".tile--2");
+const tileThird = sectionHero.querySelector(".tile--3");
+const tileFourth = sectionHero.querySelector(".tile--4");
+const tileFifth = sectionHero.querySelector(".tile--5");
 
 const tl = gsap.timeline({
 	ease: "none",
@@ -66,3 +65,14 @@ tl.to(tileFirst, {
 		},
 		0
 	);
+
+gsap.to(tileFifth, {
+	yPercent: 100,
+	scrollTrigger: {
+		trigger: ".section-hero .tile--5",
+		start: "clamp(top 15%)",
+		end: "+=300",
+		scrub: true,
+		invalidateOnRefresh: true,
+	},
+});
