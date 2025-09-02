@@ -27,4 +27,10 @@
 			height: auto;
 		}
 	}
+
+	&__action-desc {
+		position: absolute;
+		inset-block-start: 100%;
+		padding-inline-start: 77px;
+	}
 }
