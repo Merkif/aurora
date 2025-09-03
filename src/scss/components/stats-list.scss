@@ -3,14 +3,14 @@
 @use "../functions/clamp-calc" as *;
 
 .stats-list {
-	--value-font-size: 115px;
+	--value-font-size: 92px;
 	--value-offset: 40px;
 
 	display: grid;
 	column-gap: 40px;
 	align-items: flex-start;
 	grid-template-columns: max-content max-content max-content;
-	grid-template-rows: 475px auto;
+	grid-template-rows: 385px auto;
 	margin: 0;
 	padding: 0;
 	isolation: isolate;
@@ -19,7 +19,7 @@
 		display: contents;
 
 		&--active {
-			--value-font-size: 511px;
+			--value-font-size: 408px;
 			--value-translate-y: -40px;
 			--value-font-weight: 100;
 			--active-value-translate-y: calc(-1 * var(--value-translate-y));
