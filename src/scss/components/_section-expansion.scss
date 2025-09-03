@@ -2,23 +2,12 @@
 
 .section-expansion {
 	--tile-width: #{clamp-calc(1200px, 1920px, 240px, 316px)};
+	--row-width: 61px;
 
 	position: relative;
 	display: grid;
-	grid-auto-rows: max-content;
-	grid-template-areas:
-		"tl1 tl2 . . . ."
-		"tl3 . . . . ."
-		". tl4 . tl5 . ."
-		"tl6 . tl7 . . ."
-		". tl8 . . tl9 ."
-		"tl10 . . . . ."
-		"tl11 tl12 . . . ."
-		"h h h h h h"
-		"tl13 . tl14 . . ."
-		". tlw tlw tlw . .";
-	overflow-y: hidden;
-	overflow-y: clip;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: repeat(14, var(--row-width));
 	min-height: 855px;
 	color: #fff;
 	isolation: isolate;
@@ -42,163 +31,155 @@
 
 	.tile {
 		position: relative;
-		height: 27px;
-		background-color: var(--color-purple);
 
-		&::after {
+		--ty: 0;
+		--sy: 1;
+		--rx: 0deg;
+
+		&::before {
 			content: "";
 			position: absolute;
-			inset: 0;
-			height: var(--height, inherit);
+			bottom: var(--bottom, revert);
+			width: 100%;
+			height: var(--height, 100%);
 			background-color: var(--color-purple);
-			scale: 1 var(--scale-y, 1) 1;
+			transform: translateY(var(--ty)) scaleY(var(--sy))
+				rotateX(var(--rx));
+			transform-origin: var(--to, revert);
 		}
 
 		&--1 {
-			grid-area: tl1;
-			height: 107px;
+			grid-column: 1 / span 2;
+			grid-row: span 2;
 		}
 
 		&--2 {
-			grid-area: tl2;
-			height: 107px;
+			grid-column: 3 / span 2;
+			grid-row: span 2;
 		}
 
 		&--3 {
-			grid-area: tl3;
-			height: 65px;
+			grid-column: 1 / span 2;
+			grid-row: span 1;
 		}
 
 		&--4 {
-			grid-area: tl4;
-			height: 65px;
-			transform-origin: bottom;
+			--to: bottom;
+
+			grid-column: 3 / span 2;
+			grid-row: 4 / span 1;
 		}
 
 		&--5 {
-			grid-area: tl5;
-			height: 65px;
-			transform-origin: center;
+			--to: center;
 
-			&::after {
-				transform-origin: bottom;
-			}
+			grid-column: 7 / span 2;
+			grid-row: 4 / span 1;
+		}
+
+		&-5--ghost {
+			--to: top;
+
+			grid-column: 7 / span 2;
+			grid-row: 8 / span 1;
+			visibility: hidden;
 		}
 
 		&--6 {
-			grid-area: tl6;
-			height: 64px;
-			transform-origin: 40%;
+			--to: center;
+
+			grid-column: 1 / span 2;
+			grid-row: 5 / span 1;
 		}
 
 		&--7 {
-			grid-area: tl7;
-			height: 128px;
-			transform-origin: top;
+			--to: top;
 
-			&::after {
-				transform-origin: top;
-			}
+			grid-column: 5 / span 2;
+			grid-row: 5 / span 2;
 		}
 
 		&--8 {
-			grid-area: tl8;
-			height: 68px;
-			transform-origin: bottom;
+			--to: bottom;
 
-			&::after {
-				transform-origin: top;
-			}
+			grid-column: 3 / span 2;
+			grid-row: 7 / span 1;
 		}
 
 		&--9 {
-			grid-area: tl9;
-			height: 27px;
-			transform-origin: top;
+			--to: top;
+			--height: 43%;
 
-			&::after {
-				transform-origin: top;
-			}
+			grid-column: 9 / span 2;
+			grid-row: 7 / span 1;
 		}
 
 		&--10 {
-			grid-area: tl10;
-			height: 60px;
+			grid-column: 1 / span 2;
+			grid-row: 8 / span 1;
 		}
 
 		&--11 {
-			grid-area: tl11;
-			height: 108px;
+			grid-column: 1 / span 4;
+			grid-row: 9 / span 2;
 		}
 
 		&--12 {
-			grid-area: tl12;
-			height: 108px;
+			--height: 50%;
+			--bottom: 0;
+			--to: top;
 
-			&::after {
-				transform-origin: top;
-			}
+			grid-column: 1 / span 2;
+			grid-row: 12 / span 1;
 		}
 
 		&--13 {
-			align-self: end;
-			grid-area: tl13;
-			height: 32px;
-			transform-origin: top;
+			--to: top;
 
-			&::after {
-				transform-origin: top;
-			}
+			grid-column: 5 / span 2;
+			grid-row: 12 / span 1;
 		}
 
-		&--14 {
-			grid-area: tl14;
-			height: 60px;
-			transform-origin: top;
+		&-7--ghost {
+			--to: bottom;
 
-			&::after {
-				transform-origin: top;
-			}
+			grid-column: 5 / span 2;
+			grid-row: 5 / span 1;
 		}
 
-		&--hidden {
-			grid-area: h;
-			height: 72px;
-			background-color: transparent;
+		&-8--ghost {
+			--to: top;
 
-			&::after {
-				display: none;
-			}
+			grid-column: 3 / span 2;
+			grid-row: 7 / span 1;
 		}
 
 		&--wide {
-			grid-area: tlw;
-			margin-block-start: -2px;
+			--tl-wide-height: 31px;
+
+			grid-column: 3 / span 6;
+			grid-row: -1;
+			height: var(--tl-wide-height);
+			margin-block-end: calc(-1 * var(--tl-wide-height));
 		}
 	}
 
 	&__content {
-		position: absolute;
 		z-index: 1;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		justify-content: end;
-		width: 100%;
-		height: 100%;
-		max-width: 1585px;
-		margin-inline: auto;
-		padding-block-end: 72px;
-		padding-inline: var(--container) 81px;
+		grid-column: 5 / span 6;
+		grid-row: 8 / span 6;
 		row-gap: 40px;
 	}
 
 	&__title {
 		margin-inline: auto;
-		padding-inline-start: 27vw;
+		padding-inline-end: 81px;
 	}
 
 	&__desc {
-		margin-inline: auto 8vw;
+		margin-inline: auto;
+		padding-inline-start: 16vw;
 	}
 }

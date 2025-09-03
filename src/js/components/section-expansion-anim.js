@@ -9,82 +9,112 @@ const tl = gsap.timeline({
 		trigger: ".section-expansion",
 		start: "clamp(top 70%)",
 		end: "+=1100",
-		scrub: 1,
-		markers: true,
+		scrub: 1.2,
 	},
 });
 
-tl.from(".section-expansion :is(.tile--1, .tile--2)", { height: 80 }, "<")
-	.from(
-		".section-expansion :is(.tile--4, .tile--5, .tile--6)",
-		{ height: 40 },
+tl.from(".section-expansion", { "--row-width": 50 })
+	.to(".section-expansion .tile--4", { "--sy": 2 })
+	.to(".section-expansion .tile--8", { "--sy": 3 }, "<")
+	.to(".section-expansion .tile--7", { "--sy": 2 }, "<")
+	.to(
+		".section-expansion .tile--5",
+		{
+			"--rx": "180deg",
+			"--ty": "250%",
+			"--sy": "4",
+		},
 		"<"
 	)
-	.fromTo(".section-expansion .tile--3", { height: 30 }, { height: 65 }, "<")
-	.to(".section-expansion .tile--4", { scaleY: 2 })
-	.to(".section-expansion .tile--8", { scaleY: 3 }, "<")
-	.to(".section-expansion .tile--7", { scaleY: 2 }, "<")
 	.to(
 		".section-expansion .tile--6",
-		{ rotateX: 180, translateY: 35, scaleY: 265 / 64 },
-		"<"
-	)
-	.to(
-		".section-expansion .tile--5",
-		{ rotateX: 180, translateY: 321 / 2, scaleY: 256 / 65 },
-		"<"
-	)
-	.to(".section-expansion .tile--9", { scaleY: 190 / 27 }, "<")
-	.to(".section-expansion .tile--13", { scaleY: 79 / 32, y: -100 }, "<")
-	.to(
-		".section-expansion .tile--14",
-		{ scaleY: 100 / 60, yPercent: -155 },
-		"<"
-	)
-	.to(".section-expansion .tile--8", {
-		"--scale-y": "1.35",
-	})
-	.to(".section-expansion .tile--13", {
-		"--scale-y": "3.4",
-	})
-	.to(
-		".section-expansion .tile--12",
 		{
-			"--scale-y": "3.4",
-		},
-		"<"
-	)
-	.to(
-		".section-expansion .tile--7",
-		{
-			"--scale-y": "1.5",
-		},
-		"<"
-	)
-	.to(
-		".section-expansion .tile--14",
-		{
-			"--scale-y": "3",
-		},
-		"<"
-	)
-	.to(
-		".section-expansion .tile--5",
-		{
-			"--scale-y": "2.5",
+			"--rx": "180deg",
+			"--ty": "50%",
+			"--sy": "4",
 		},
 		"<"
 	)
 	.to(
 		".section-expansion .tile--9",
 		{
-			"--scale-y": "2.6",
+			"--sy": "3",
+			"--height": "100%",
+		},
+		"<"
+	)
+	.to(
+		".section-expansion .tile--12",
+		{
+			"--height": "100%",
+			"--ty": "-100%",
+		},
+		"<"
+	)
+	.to(
+		".section-expansion .tile--13",
+		{
+			"--sy": "1.8",
+			"--ty": "-180%",
+		},
+		"<"
+	)
+	.to(".section-expansion .tile-8--ghost", {
+		"--sy": "8",
+	})
+	.to(
+		".section-expansion .tile--12",
+		{
+			"--sy": "4",
+		},
+		"<"
+	)
+	.to(
+		".section-expansion .tile--7",
+		{
+			"--sy": "2.7",
+		},
+		"<"
+	)
+	.to(
+		".section-expansion .tile--13",
+		{
+			"--sy": "4.8",
+		},
+		"<"
+	)
+	.to(
+		".section-expansion .tile-5--ghost",
+		{
+			visibility: "visible",
+			"--sy": "7",
+		},
+		"<"
+	)
+	.to(
+		".section-expansion .tile--9",
+		{
+			"--sy": "8",
+		},
+		"<"
+	)
+	.to(
+		".section-expansion .tile--5",
+		{
+			"--sy": "6",
+		},
+		"<"
+	)
+	.to(
+		".section-expansion .tile-7--ghost",
+		{
+			"--sy": "2",
 		},
 		"<"
 	)
 	.to(".section-expansion .tile--wide", {
-		height: 84,
+		"--tl-wide-height": 84,
 	})
 	.to(".section-expansion .tile--wide", {
-		height: 0,
+		"--tl-wide-height": 0,
 	});
