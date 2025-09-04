@@ -28,12 +28,14 @@ class StatsList {
 			const button = item.querySelector(".stats-list__button");
 			if (button) {
 				button.addEventListener("click", () => {
-					this.next(index);
-					this.userInteracted = true;
+					this.handleButtonClick();
+				});
+			}
 
-					if (this.disableOnInteraction) {
-						this.stopAutoplay();
-					}
+			const value = item.querySelector(".stats-list__value");
+			if (value) {
+				value.addEventListener("click", () => {
+					this.handleValueClick(index);
 				});
 			}
 		});
@@ -85,6 +87,25 @@ class StatsList {
 	next(currentIndex = this.activeIndex) {
 		this.activeIndex = (currentIndex + 1) % this.totalItems;
 		this.updateActiveItem();
+	}
+
+	handleButtonClick() {
+		this.next();
+		this.userInteracted = true;
+
+		if (this.disableOnInteraction) {
+			this.stopAutoplay();
+		}
+	}
+
+	handleValueClick(index) {
+		this.activeIndex = index;
+		this.updateActiveItem();
+		this.userInteracted = true;
+
+		if (this.disableOnInteraction) {
+			this.stopAutoplay();
+		}
 	}
 
 	startAutoplay(interval) {
