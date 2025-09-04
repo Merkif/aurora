@@ -71,6 +71,7 @@
 		line-height: 0.93;
 		transform: translateY(var(--value-translate-y, revert));
 		transition: all 0.3s ease, font-weight 0s;
+		cursor: pointer;
 		user-select: none;
 
 		&::before,
