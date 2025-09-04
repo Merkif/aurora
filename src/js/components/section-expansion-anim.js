@@ -60,12 +60,12 @@ tl.from(".section-expansion", { "--row-width": 50 })
 		"<"
 	)
 	.to(".section-expansion .tile-8--ghost", {
-		"--sy": "8",
+		"--sy": "7.9",
 	})
 	.to(
 		".section-expansion .tile--12",
 		{
-			"--sy": "4",
+			"--sy": "3.98",
 		},
 		"<"
 	)
@@ -79,7 +79,7 @@ tl.from(".section-expansion", { "--row-width": 50 })
 	.to(
 		".section-expansion .tile--13",
 		{
-			"--sy": "4.8",
+			"--sy": "4.78",
 		},
 		"<"
 	)
@@ -87,7 +87,7 @@ tl.from(".section-expansion", { "--row-width": 50 })
 		".section-expansion .tile-5--ghost",
 		{
 			visibility: "visible",
-			"--sy": "7",
+			"--sy": "6.92",
 		},
 		"<"
 	)
