@@ -36,6 +36,8 @@
 		--sy: 1;
 		--rx: 0deg;
 
+		margin-block-start: -1px;
+
 		&::before {
 			content: "";
 			position: absolute;
@@ -168,18 +170,18 @@
 		z-index: 1;
 		display: flex;
 		flex-direction: column;
-		grid-column: 5 / span 6;
+		grid-column: 3 / span 8;
 		grid-row: 8 / span 6;
+		padding-inline-end: 81px;
 		row-gap: 40px;
 	}
 
 	&__title {
-		margin-inline: auto;
-		padding-inline-end: 81px;
+		margin-inline-start: auto;
 	}
 
 	&__desc {
-		margin-inline: auto;
-		padding-inline-start: 16vw;
+		margin-inline-start: auto;
+		padding-inline-end: 40px;
 	}
 }
