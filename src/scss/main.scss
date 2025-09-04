@@ -11,32 +11,12 @@
 @use "./components/text";
 @use "./components/button";
 @use "./components/stats-list";
+@use "./components/section-header";
+@use "./components/scroller";
+@use "./components/partner-logo";
 
-// @use "./components/main";
-// @use "./components/features";
-// @use "./components/link";
-// @use "./components/list";
-// @use "./components/pricing-cads";
-// @use "./components/card";
-// @use "./components/tabs";
-// @use "./components/slider";
-// @use "./components/grid-default";
-// @use "./components/guarantee-list";
-// @use "./components/stage-card";
-// @use "./components/project-card";
-// @use "./components/team-member";
-// @use "./components/map";
-// @use "./components/contact-list";
-// @use "./components/social";
-// @use "./components/field";
-// @use "./components/radio";
-// @use "./components/form";
-// @use "./components/modal";
-// @use "./components/footer";
 // подключения секций страницы
 @use "./components/section-hero";
 @use "./components/section-about";
 @use "./components/section-expansion";
-
-// utils
-// @use "./components/utils";
+@use "./components/section-partners";

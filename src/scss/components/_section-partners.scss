@@ -1,0 +1,12 @@
+.section-partners {
+	display: flex;
+	flex-direction: column;
+	padding-block: 114px;
+	row-gap: 208px;
+
+	&__header {
+		--padding: 88px;
+
+		padding-inline: calc(var(--left-panel) + var(--padding)) var(--padding);
+	}
+}

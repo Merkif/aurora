@@ -1,0 +1,10 @@
+.partner-logo {
+	display: flex;
+	align-items: center;
+	height: 84px;
+
+	&__img {
+		display: flex;
+		object-fit: contain;
+	}
+}

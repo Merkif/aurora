@@ -5,3 +5,4 @@ import "./components/section-about-anim.js";
 import "./components/section-expansion-anim.js";
 import "./components/menu.js";
 import "./components/slider-stats.js";
+import "./components/scroller.js";
