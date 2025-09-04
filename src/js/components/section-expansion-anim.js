@@ -94,7 +94,7 @@ tl.from(".section-expansion", { "--row-width": 50 })
 	.to(
 		".section-expansion .tile--9",
 		{
-			"--sy": "8",
+			"--sy": "7.9",
 		},
 		"<"
 	)
